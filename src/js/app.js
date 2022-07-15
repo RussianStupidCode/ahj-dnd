@@ -26,6 +26,6 @@ function createControlButton(text, uniqueClass, callback) {
 createControlButton('trello (#1)', 'trello-start-button', () => {
   field.innerHTML = '';
 
-  const trello = new Trello();
+  const trello = new Trello(window.localStorage);
   trello.bindToDOM(field);
 });

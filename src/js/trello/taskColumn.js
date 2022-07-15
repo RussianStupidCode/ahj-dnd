@@ -5,8 +5,11 @@ import TaskContent from './taskContent';
 export default class TaskColumn {
   static fromObject(object) {
     const taskColumn = new TaskColumn(object.title);
+
     object.tasks.forEach((taskObject) => {
-      taskColumn.tasks.push(Task.fromObject(taskObject));
+      const task = Task.fromObject(taskObject);
+      taskColumn.tasks.push(task);
+      task.bindToDOM(taskColumn.taskColumnContent);
     });
 
     return taskColumn;
@@ -74,6 +77,7 @@ export default class TaskColumn {
     if (relativeTaskElement === undefined) {
       this.tasks.push(task);
       task.bindToDOM(this.taskColumnContent);
+      this.trelloState?.saveState();
       return;
     }
 
@@ -91,6 +95,7 @@ export default class TaskColumn {
       );
       this.tasks.splice(taskIndex + 1, 0, task);
     }
+    this.trelloState?.saveState();
   }
 
   addEmptyElement(element, position = 'before', relativeTaskElement) {
@@ -119,11 +124,13 @@ export default class TaskColumn {
     const task = this.tasks[taskIndex];
     task.remove();
     this.tasks.splice(taskIndex, 1);
+    this.trelloState?.saveState();
   }
 
   extractTask(id) {
     const taskIndex = this.tasks.findIndex((task) => task.id === id);
     this.tasks.splice(taskIndex, 1);
+    this.trelloState?.saveState();
   }
 
   getTask(id) {
@@ -132,7 +139,7 @@ export default class TaskColumn {
 
   toObject() {
     return {
-      title: this.title,
+      title: this.el.dataset.title,
       tasks: this.tasks.map((task) => task.toObject()),
     };
   }

@@ -1,10 +1,31 @@
 import TaskColumn from './taskColumn';
 
 export default class Trello {
-  constructor(taskColumns) {
+  constructor(storage) {
+    let trelloObject = null;
+    if (storage.getItem('trello')) {
+      trelloObject = JSON.parse(storage.getItem('trello'));
+    }
+
     this.state = {
-      maxId: 0,
+      maxId: trelloObject?.maxId || 0,
+
+      saveState: () => {
+        const object = {
+          taskColumn: Object.fromEntries(
+            Object.entries(this.taskColumns).map((entry) => [
+              entry[0],
+              entry[1].toObject(),
+            ])
+          ),
+
+          maxId: this.state.maxId,
+        };
+
+        storage.setItem('trello', JSON.stringify(object));
+      },
     };
+
     this.el = document.createElement('div');
     this.el.classList.add('trello');
 
@@ -16,8 +37,13 @@ export default class Trello {
     this.emptyElement = document.createElement('div');
     this.emptyElement.classList.add('empty-element');
 
-    if (taskColumns) {
-      this.taskColumns = taskColumns;
+    if (trelloObject?.taskColumn) {
+      this.taskColumns = Object.fromEntries(
+        Object.entries(trelloObject.taskColumn).map((entry) => [
+          entry[0],
+          TaskColumn.fromObject(entry[1]),
+        ])
+      );
     } else {
       this.taskColumns = {
         TODO: new TaskColumn('TODO'),
