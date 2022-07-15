@@ -1,0 +1,124 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  font-size: 2vw;
+  color: black;
+}
+
+.controls {
+  width: 100%;
+}
+
+.field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.task-column {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  border: 0.2vw solid greenyellow;
+  padding: 1%;
+  margin: 0 1vw;
+}
+
+.task-column-title {
+  width: 100%;
+  align-self: flex-start;
+  padding: 1%;
+  font-size: 2vw;
+}
+
+.task-column-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 2%;
+  min-height: 6vw;
+  border: 0.2vw solid blueviolet;
+}
+
+.task {
+  background-color: #eee;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  border: 0.2vw solid green;
+  margin-bottom: 1vw;
+}
+
+.task-delete-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  width: 1.5vw;
+  height: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.trello {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.task-delete-btn > span {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.task-content {
+  width: 100%;
+  padding: 3%;
+}
+
+.task-add-block {
+  margin: 1vw 0;
+  width: 100%;
+}
+
+.task-shadow {
+  cursor: grabbing;
+  background-color: #eee;
+  position: absolute;
+  z-index: 100;
+  opacity: 0.9;
+  filter: grayscale(0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  border: 0.2vw solid green;
+  margin-bottom: 1vw;
+  pointer-events: none;
+}
+
+.empty-element {
+  background-color: #555;
+  margin-bottom: 1vw;
+}

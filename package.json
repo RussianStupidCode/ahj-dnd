@@ -1,0 +1,48 @@
+{
+  "name": "team-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "lint": "eslint .",
+    "test": "jest --passWithNoTests",
+    "coverage": "jest --testPathPattern=./src/ --coverage"
+  },
+  "author": "coursar",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^4.1.0",
+    "html-loader": "^1.3.2",
+    "html-webpack-plugin": "^4.5.1",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.2",
+    "jest-puppeteer": "^6.1.1",
+    "jsdom": "^20.0.0",
+    "live-server": "^1.1.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "prettier": "2.7.1",
+    "terser-webpack-plugin": "^5.0.3",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1",
+    "webpack-merge": "^5.7.3"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "core-js": "^3.6.5",
+    "license-webpack-plugin": "^4.0.2"
+  }
+}
