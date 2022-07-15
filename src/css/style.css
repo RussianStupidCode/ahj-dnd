@@ -198,6 +198,37 @@ body {
   width: 18vw;
 }
 
+.download-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 1vw 0;
+}
+
+.available-files {
+  padding: 1%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-radius: 20px;
+  border: 0.2vw solid black;
+  margin-bottom: 2vw;
+  font-size: 3vw;
+}
+
+.download-manager {
+  padding: 1%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-size: 3vw;
+  width: 90%;
+}
+
 .hide {
   display: none;
 }

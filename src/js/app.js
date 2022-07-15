@@ -1,3 +1,4 @@
+import DownloadManager from './download_manager/manager';
 import Card from './gallery_storage/card';
 import CardList from './gallery_storage/cardList';
 import Gallery from './gallery_storage/gallery';
@@ -38,4 +39,11 @@ createControlButton('gallery (#2)', 'gallery-start-button', () => {
 
   const gallery = new Gallery(CardList, Card);
   gallery.bindToDOM(field);
+});
+
+createControlButton('download-manager (#3)', 'download-start-button', () => {
+  field.innerHTML = '';
+
+  const downloadManager = new DownloadManager();
+  downloadManager.bindToDOM(field);
 });
