@@ -19,6 +19,14 @@ module.exports = {
         },
       },
       {
+        test: /\.pdf$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
         test: /\.html$/,
         use: [
           {

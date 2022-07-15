@@ -1,3 +1,7 @@
+import DownloadManager from './download_manager/manager';
+import Card from './gallery_storage/card';
+import CardList from './gallery_storage/cardList';
+import Gallery from './gallery_storage/gallery';
 import Trello from './trello/trello';
 
 const controls = document.querySelector('.controls');
@@ -26,6 +30,20 @@ function createControlButton(text, uniqueClass, callback) {
 createControlButton('trello (#1)', 'trello-start-button', () => {
   field.innerHTML = '';
 
-  const trello = new Trello();
+  const trello = new Trello(window.localStorage);
   trello.bindToDOM(field);
+});
+
+createControlButton('gallery (#2)', 'gallery-start-button', () => {
+  field.innerHTML = '';
+
+  const gallery = new Gallery(CardList, Card);
+  gallery.bindToDOM(field);
+});
+
+createControlButton('download-manager (#3)', 'download-start-button', () => {
+  field.innerHTML = '';
+
+  const downloadManager = new DownloadManager();
+  downloadManager.bindToDOM(field);
 });
