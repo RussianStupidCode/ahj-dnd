@@ -45,10 +45,13 @@ export default class Trello {
       this.dndBuffer?.remove();
       this.dndBuffer = null;
       this.previouseMousePosition = null;
+      this.dndOriginalElement = null;
       this.el.style.cursor = 'pointer';
+      this.lastSaveMouseData.taskColumn?.deleteEmptyElement();
+      this.lastSaveMouseData.taskElement = null;
     });
 
-    this.el.addEventListener('mouseout', (event) => {
+    this.el.addEventListener('mouseover', (event) => {
       const { target } = event;
 
       if (!this.dndBuffer) {
