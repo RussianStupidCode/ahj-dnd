@@ -1,3 +1,6 @@
+import Card from './gallery_storage/card';
+import CardList from './gallery_storage/cardList';
+import Gallery from './gallery_storage/gallery';
 import Trello from './trello/trello';
 
 const controls = document.querySelector('.controls');
@@ -28,4 +31,11 @@ createControlButton('trello (#1)', 'trello-start-button', () => {
 
   const trello = new Trello(window.localStorage);
   trello.bindToDOM(field);
+});
+
+createControlButton('gallery (#2)', 'gallery-start-button', () => {
+  field.innerHTML = '';
+
+  const gallery = new Gallery(CardList, Card);
+  gallery.bindToDOM(field);
 });
